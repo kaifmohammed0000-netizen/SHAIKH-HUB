@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Product Marketplace</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Post Your Product</h2>
+            <form id="product-form">
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" name="product-name" required>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <button type="submit">Post Product</button>
+            </form>
+        </section>
+        <section id="product-list">
+            <h2>Posted Products</h2>
+            <ul>
+                <!-- Products will be listed here -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Product Marketplace</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
