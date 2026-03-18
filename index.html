@@ -3,39 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Marketplace</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Product Form</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Product Marketplace</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Post Your Product</h2>
-            <form id="product-form">
-                <label for="product-name">Product Name:</label>
-                <input type="text" id="product-name" name="product-name" required>
+    <h1>Product Form</h1>
+    <form id="productForm">
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="toys">Toys</option>
+        </select>
 
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" required>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location">
 
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea>
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search" placeholder="Search products...">
 
-                <button type="submit">Post Product</button>
-            </form>
-        </section>
-        <section id="product-list">
-            <h2>Posted Products</h2>
-            <ul>
-                <!-- Products will be listed here -->
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Product Marketplace</p>
-    </footer>
-    <script src="script.js"></script>
+        <label for="imageUpload">Image Upload:</label>
+        <input type="file" id="imageUpload" name="imageUpload">
+
+        <label for="contactInfo">Contact Information:</label>
+        <input type="text" id="contactInfo" name="contactInfo" placeholder="Your contact info">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Products Display</h2>
+    <div id="productsDisplay">
+        <div class="product" data-category="electronics">
+            <p>Electronics Product 1</p>
+        </div>
+        <div class="product" data-category="clothing">
+            <p>Clothing Product 1</p>
+        </div>
+        <div class="product" data-category="toys">
+            <p>Toy Product 1</p>
+        </div>
+        <!-- Products will be filtered based on category and search functionality -->
+    </div>
+
+    <script>
+        // JavaScript for filtering products
+        const searchInput = document.getElementById('search');
+        const products = document.querySelectorAll('.product');
+
+        searchInput.addEventListener('input', function() {
+            const searchValue = searchInput.value.toLowerCase();
+            products.forEach(product => {
+                const productText = product.innerText.toLowerCase();
+                product.style.display = productText.includes(searchValue) ? '' : 'none';
+            });
+        });
+
+        // Additional filtering logic for categories can be added here
+    </script>
 </body>
 </html>
